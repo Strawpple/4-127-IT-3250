@@ -1,56 +1,129 @@
+const http = require('http');
+const fs = require('fs');
+
 var express = require('express');
-const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
 var app = express();
 
+
 app.set('view engine', 'ejs');
-require('dotenv').config();
+// require('dotenv').config();
+
+
 
 let countries = [
     {id: 1, cname: 'Philippines', price: 2000},
     {id: 2, cname: 'South Korea', price: 2000},
     {id: 3, cname: 'Dell', price: 2000}
 ]
-let cities = [
-    {id: 1, ciname: 'Carmen, Davao del Norte', price: 2000},
-    {id: 2, ciname: 'Davao City, Davao del Sur', price: 2000},
-    {id: 3, ciname: 'Manila, Philippines', price: 2000}
-]
+// let cities = [
+//     {id: 1, ciname: 'Carmen, Davao del Norte', price: 2000},
+//     {id: 2, ciname: 'Davao City, Davao del Sur', price: 2000},
+//     {id: 3, ciname: 'Manila, Philippines', price: 2000}
+// ]
 
-app.get('/', (req, res) =>{
-    res.render('views/index', data);
-})
 
-app.post("/", async (req, res) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q={Davao City}&appid=${process.env}`;
-    const response = await fetch(url);
-    const weatherdata = await response.json();
-    console.log(weatherdata);
 
-})
 
-var weather = require('weather-js');
- 
-// Options:
-// search:     location name or zipcode
-// degreeType: F or C
- 
-weather.find({search: 'Davao City, Ph', degreeType: 'C'}, function(err, result) {
-  if(err) console.log(err);
- 
-  console.log(JSON.stringify(result, null, 2));
+
+
+// app.get('/', function (req, res){
+//     let data = {
+//         url: req.url,
+//     }
+//     res.render('index', data);
+// })
+// app.get('/index', function (req, res) {
+//     let data = {
+//         url: req.url,
+//         array: [
+//             {fname: "Adrian", lname: "Requillo"}
+//         ],
+//     }
+//     res.render('index')
+// })
+
+
+
+
+
+
+//Node Server - Routing
+
+const server = http.createServer((req, res) =>{
+    console.log(req.url);
+
+    res.setHeader('Content-Type', 'text/html');
+    // let urll = './views'
+
+    // if (req.url == '/'){
+    //     urll += 'index.html';
+    //     res.statusCode = 200;
+    // }else if (req.url == '/about'){
+    //     urll += 'about.html';
+    //     res.statusCode = 200;
+    // }else if (req.url == '/contacts'){
+    //     urll += 'contactus.html';
+    //     res.statusCode = 200;
+    // }else if (req.url == '/aboutus'){
+    //     res.statusCode = 301;
+    //     res.setJeader('Location', '/about');
+    //     res.end();
+            
+    // }else{
+    //     urll += '404.html';
+    //     res.statusCode = 404;
+    
+    // }
+
+    fs.readFile('./index.html', (err, data) => {
+        if(err){
+            console.log(err);
+            res.end();
+
+        }else{
+            res.end(data);
+        }
+    });
+
 });
 
 
 
-app.get('/index', function (req, res){
-    let data = {
-        url: req.url,
-    }
-    res.render('views/index', data);
-})
 
-app.listen(3000,  () => {
+
+//Weatherjs 
+
+// var weather = require('weather-js');
+// const res = require('express/lib/response');
+// const { stringify } = require('querystring');
+// Options:
+// search:     location name or zipcode
+// degreeType: F or C
+ 
+// weather.find({search: 'Davao City, Ph', degreeType: 'C'}, function(err, result) {
+//   if(err) console.log(err);
+//     app.get('/', function (req, res) {
+//     let country = stringify.result
+//     res.render('views/index',{country});
+//     })
+// });
+
+//weatherjs get data
+
+// app.get('/', (req, res) =>{
+//     res.render('views/index', data);
+// })
+
+// app.post("/", async (req, res) => {
+//     const url = `https://api.openweathermap.org/data/2.5/weather?q={Davao City}&appid=${process.env}`;
+//     const response = await fetch(url);
+//     const weatherdata = await response.json();
+//     console.log(weatherdata);
+
+// })
+
+
+app.listen(3000, 'localhost', () => {
     console.log("Server is running");
 });
     
