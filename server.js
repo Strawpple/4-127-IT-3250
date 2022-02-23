@@ -29,26 +29,26 @@ app.post("/", async (req, res) => {
 
 })
 
-// var weather = require('weather-js');
+var weather = require('weather-js');
  
 // Options:
 // search:     location name or zipcode
 // degreeType: F or C
  
-// weather.find({search: 'Davao City, Ph', degreeType: 'C'}, function(err, result) {
-//   if(err) console.log(err);
+weather.find({search: 'Davao City, Ph', degreeType: 'C'}, function(err, result) {
+  if(err) console.log(err);
  
-//   console.log(JSON.stringify(result, null, 2));
-// });
+  console.log(JSON.stringify(result, null, 2));
+});
 
 
 
-// app.get('/index', function (req, res){
-//     let data = {
-//         url: req.url,
-//     }
-//     res.render('views/index', data);
-// })
+app.get('/index', function (req, res){
+    let data = {
+        url: req.url,
+    }
+    res.render('views/index', data);
+})
 
 app.listen(3000,  () => {
     console.log("Server is running");
