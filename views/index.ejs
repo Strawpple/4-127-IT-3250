@@ -7,19 +7,58 @@
 
     <body>
         <header>
-          
+          <%- include('../views/header'); %>
 
         </header>
         <main class="container">
-            <div class="card border-secondary mb-3" style="max-width: 20rem;">
-                <!-- <div class="card=header">about <%= fname %></div> -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Weather</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Countries
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Philippines</a></li>
+                            <li><a class="dropdown-item" href="#">South Korea</a></li>
+                            <li><a class="dropdown-item" href="#">Elmhurst, US</a></li>
+                            </ul>
+                        </li>
+                      </div>
+                      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Cities
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Carmen, Davao del Norte</a></li>
+                            <li><a class="dropdown-item" href="#">Davao City, Davao del Sur</a></li>
+                            <li><a class="dropdown-item" href="#">Jaro, Iloilo City</a></li>
+                            </ul>
+                        </li>
+                      </div>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Other</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">
-                    <!-- <%= country %> -->
-                </h4>
-            </div>
+              </nav>
+
+              <div class="container">
+                <!-- Content here -->
+                <div class="card border-secondary mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><%= country1 %></div>
+                </div>
+              </div>
+
+
         </main>
     </body>
 
