@@ -1,20 +1,133 @@
-// const http = require('http');
-// const fs = require('fs');
-
 var express = require('express');
+var request = require('request');
+const { isContext } = require('vm');
+
 var app = express();
-
-
 app.set('view engine', 'ejs');
 
+// console.log(__dirname);
+
+// app.get('/', function (req, res){
+//     res.render('index')
+// });
 
 
+var url = `https://api.openweathermap.org/data/2.5/weather?q=Davao%20City,%20Ph&units=metric&appid=31e1b0455c6f190c119c4c2ec90b3c87`;
+var url2 = `http://api.openweathermap.org/data/2.5/weather?q=Panabo%20City,%20Ph&units=metric&appid=31e1b0455c6f190c119c4c2ec90b3c87`;
+// var url3 = `https://api.openweathermap.org/data/2.5/weather?q=Mati%20City,%20Ph&units=metric&appid=31e1b0455c6f190c119c4c2ec90b3c87`;
+
+app.get('/',function(req, res, next){
+    request(url, function(error, response, body){
+        weather_json = JSON.parse(body);
+        console.log(weather_json);
+
+        var weather = {
+            city : weather_json.name,
+            longitude: weather_json.coord.lon,
+            latitude: weather_json.coord.lat,
+            temperature: weather_json.main.temp,
+            description: weather_json.weather[0].description,
+            icon: weather_json.weather[0].icon
+        };
+        
+        var weather_data = {weather : weather};
+
+        res.render('index', weather_data);
+        next();
+
+    });
+});
+
+// //Panabo
+app.get('/',function(req, res2, next){
+    request(url2, function(error, response, body){
+        weather_json = JSON.parse(body);
+        console.log(weather_json);
+
+        var pweather = {
+            pcity : weather_json.main.city,
+            plongitude: weather_json.coord.lon,
+            platitude: weather_json.coord.lat,
+            ptemperature: weather_json.main.temp,
+            pdescription: weather_json.weather[0].description 
+        };
+        var weather_data = {weather : pweather};
+
+        res2.render('index', weather_data);
+        next();
+    });
+});
+
+//Mati
+
+// app.get('/',function(req, res){
+//     request(url3, function(error, response, body){
+//         weather_json = JSON.parse(body);
+//         console.log(weather_json);
 
 
+//         var matiweather = {
+//             mcity : weather_json.main.city,
+//             mlongitude: weather_json.coord.lon,
+//             mlatitude: weather_json.coord.lat,
+//             mtemperature: weather_json.main.temp,
+//             mdescription: weather_json.weather[0].description 
+//         };
 
-//Weatherjs 
+        
 
-var weather = require('weather-js');
+//         var weather_data3 = {matiweather : mweather};
+
+//         res.render('index', weather_data3);
+
+//     });
+// });
+
+
+// app.post('/', (req, res) => {
+//     const city = req.body.city;
+//     const urlapi = `https://api.openweathermap.org/data/2.5/weather?q={Davao City}&appid={31e1b0455c6f190c119c4c2ec90b3c87}`;
+    
+//     try{
+//         await fetch(urlapi)
+//         .then(res => res.json())
+//         .then(data =>{
+//             if(data.message == 'city not found'){
+//                 res.render('index',{
+//                     city: data.message,
+//                     temp:null,
+//                     lat: null,
+//                     long: null,
+//                     degreetype: null,
+//                     skytext: null
+
+//                 })
+//             } else{
+//                 const city = data.name;
+//                 const temp = data.temp;
+//                 const lat = data.lat;
+//                 const long = data.long;
+//                 const degt = data.degreetype;
+//                 const skytext = data.skytext;
+
+//                 res.render('index',{
+//                     city, temp, lat, long, degt, skytext
+//                 });
+
+//             }
+//         })
+//     }
+
+// })
+
+
+// module.exports = app;
+
+
+// Weatherjs 
+
+// var weather = require('weather-js');
+
 
 // Options:
 // search:     location name or zipcode
@@ -22,12 +135,14 @@ var weather = require('weather-js');
 
 
 
+// weather.find({search: 'Davao City', degreeType: 'C'}, function(err, result) {
+//     if(err) console.log(err);
+//     //   console.log(JSON.stringify(result.location.lat, null, 2));
+//     let city = result.long
 
-weather.find({search: 'Davao City, Ph', degreeType: 'C'}, function(err, result) {
-    if(err) console.log(err);
-      // res.render('views/index', country1);
-      console.log(JSON.stringify(result, null, 2));
-  });
+    
+      
+//   });
 
 
 

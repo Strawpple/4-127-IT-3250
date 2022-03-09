@@ -1,65 +1,65 @@
+<%- include("header.ejs") %>
+
 <!DOCTYPE html>
-<html lang="en">
-
-    <head>
-
-    </head>
-
+<html>
     <body>
-        <header>
-          <%- include('../views/header'); %>
-
-        </header>
-        <main class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="main-content">
+            
+              <!--Start of NavBar-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Weather</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <a class="navbar-brand" href="#">Weather App</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Countries
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Philippines</a></li>
-                            <li><a class="dropdown-item" href="#">South Korea</a></li>
-                            <li><a class="dropdown-item" href="#">Elmhurst, US</a></li>
-                            </ul>
-                        </li>
-                      </div>
-                      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Cities
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Carmen, Davao del Norte</a></li>
-                            <li><a class="dropdown-item" href="#">Davao City, Davao del Sur</a></li>
-                            <li><a class="dropdown-item" href="#">Jaro, Iloilo City</a></li>
-                            </ul>
-                        </li>
-                      </div>
+              
+                  <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Home
+                          <span class="visually-hidden">(current)</span>
+                        </a>
+                      </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Other</a>
                       </li>
+                      
                     </ul>
                   </div>
                 </div>
               </nav>
+              <!--End of NavBar-->
 
-              <div class="container">
-                <!-- Content here -->
-                <div class="card border-secondary mb-3" style="max-width: 20rem;">
-                    <div class="card-header"><%= country1 %></div>
+              <h2 style="margin-top: 20px;">Cities</h2> <br>
+
+              <div class="card bg-light mb-3" style="max-width: 20rem; height: 300px;">
+                <div class="card-header"><%= weather.city %></div>
+                <div class="card-body" style="height: 300px;">
+                  <p class="card-text">Temperature:<%= weather.temperature %></p>
+                  <p class="card-text">Latitude: <%= weather.latitude %></p>
+                  <p class="card-text">Longitude: <%= weather.longitude %></p>
+                  <p class="card-text">Description: <%= weather.description %>
+                    <img src="http://openweathermap.org/img/w/<%=weather.icon%>.png" alt="Image" height="50" width="50">
+                  </p>
+                </div>
+                
+              </div>
+
+              <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header"><%= weather.pcity %></div>
+                <div class="card-body" style="height: 300px;">
+                  <p class="card-text"><%= weather.ptemperature %></p>
+                  <p class="card-text"><%= weather.platitude %></p>
+                  <p class="card-text"><%= weather.plongitude %></p>
+                  <p class="card-text"><%= weather.pdescription %></p>
                 </div>
               </div>
 
+              <div class="card bg-light mb-3" style="max-width: 20rem;">
+                
+              </div>
 
-        </main>
+
+        </div>
     </body>
-
 </html>
