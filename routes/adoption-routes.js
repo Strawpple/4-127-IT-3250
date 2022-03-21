@@ -1,10 +1,9 @@
-const express = require('express');
-const {addadoption} = require('../controllers/adoptionController');
+import { Router } from 'express';
+import defaults from '../controllers/adoptionController.js';
+const { addadoption } = defaults;
 
-const router = express.Router();
+const router = Router();
 
 router.post('/adoption', addadoption);
 
-module.exports = {
-    routes: router
-}
+export const routes = router;

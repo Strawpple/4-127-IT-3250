@@ -1,7 +1,7 @@
 'use strict';
 
-const firebase = require('../db');
-const Adoption = require('../models/adoption');
+import firebase from '../db.js';
+import Adoption from '../models/adoption.js';
 const firestore = firebase.firestore();
 
 const addadoption = async (req, res, next) => {
@@ -14,6 +14,6 @@ const addadoption = async (req, res, next) => {
     }
 }
 
-module.exports = {
+export default {
     addadoption
 }
