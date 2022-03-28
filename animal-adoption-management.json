@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "animal-adoption-management",
+  "private_key_id": "493607db34cc2ccb09bcb928d2311699888b012b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDsR60Fp/BinR/T\n0ih8xPa1JTm3QnxYG4c7BT4SW2KYGRaSozweXa61ftCk9JjMVaCjlsSIjqsPQ9vz\nVPBCXdnus7ihG5auNhmK1/r9inEO7KWfYlE6h3Nu2i87kVSz5sb07FcDQ01bvmPZ\nElMoPqyFc5Tcpq7j5TmEV8jAvtz1mA4FeFaW2xICBgR+X5K+2TFVdc9LfJgChGVB\nKgc+W9pWO5pELiSdVPxSUxGyyaCBPqAdhI138RKRGWvULYzS/Zs5Dcy3WJ5WRQfX\ni1TiD1pmh1lQrGheoDtJ+Ubdur5F5VkPnY+xeyip9vJ9myQ5gi4EEVzbtt9lrJBr\n7h/sAHm7AgMBAAECggEAHCyVI8OEFSjfOVwp78FyGY+Nc54TQv5QAGhTn89oe50i\nOpde/SVL8TW581wnNtZPCAgGT1zpENzqm/gDiNEKwj0z8CILXvfx0RiH7ouqMjlj\nARUG0o/W4opUb39Di7V3q+TdS0pPLc1kt+bze4JdrVwRjW4NafyqAG88mknSrIYb\nyUUkl3BdeYGLQxMoLtw1I9+ZxQ9uj9Ze6vHNHRSOouhZNUkojbuyigUpYflaWHzn\n4zkkR94iku0BXOrKrNabiQ+Nl75xWZNxW0EnZ/uLKdBVmxKrdy9byNAdCQF9ppYO\ni4Rom4GXWDI9TIxMOelPqJ6LIvSzgXYep3V6UrynoQKBgQD2MFTd6vZhHVaKoxvi\n8EIydOrltMfJDWVdL3Wkm8+CqetPemMwPctci9GfZiOQElQ9vXIryfSQzek70azX\nxNZpM6aOmW1Gtw7fJvWCY30eJJwY1WM3pEsqSWhqPSLKTLB/umeC0KAoUnFBfpW2\ntjoQF4YNFR8ZInoTiUxrTyQNNQKBgQD1skCszfmVRVWl0g5sWEumbOa28Y/eZmSQ\nm+FI8eat0yIp7p+nDgZy0U3Whr0o4Gq+RU6LDcgZmRiMSIOw1KFO8noGXMWGRR7T\nbaGSbKdcL4v22+TSO+vg6BDHiZ+NrP8345gEaFFoabpcx6v+D2VUgKxiYJvX4adH\nzswaShR5LwKBgQCSo18pf9aZKdxuX5Ewr2L+ot13TSLjAnOp+abdEWGctpFOmduS\n1HvY9/84LqJoIkLDM6BZrMVbqwqNcuq86qW7q+Q9c+2+/TKCgLYjoBbaaXwA3rlm\nXxnWajsjbJ7YWK2YpvMY3CNJYTHMjRWn6wrSovBZwobvdbW5BULbeBxFMQKBgEPO\nwSiv4+y9aOjNsytVpvM0ZOwieMkxSxnZ23ANStO4TFp0P92T8lWnzCqjnvr0DKGc\ncRPRZuMhrHOy451e4XHvW5v76Iuo8dv6Crhlgj7f5GnpwBoBbZTxlwfqxH0OPJWJ\nG4BD5gvB+iv281G3oAiVRn4UGY6X+VnJCe1LeqEDAoGBAPXOKrBdyDQGKMoF8Ev8\nj5pJi1dvhtK2Q5RGYJacM3bSmXvy+LtZfkd8UEy9HH6q6PQrpwS/M9sdY1vPWkwH\n6HILmCuTT2JNC+1qJG1t8Y6aYHpWBBGOvVJd8RH4Yd4+WMyiv3mCLwK+kPu8ly3h\nS7YD+jov9GqXU+x4DKf7THDS\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-iop26@animal-adoption-management.iam.gserviceaccount.com",
+  "client_id": "111580231541115407643",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-iop26%40animal-adoption-management.iam.gserviceaccount.com"
+}
