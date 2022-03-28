@@ -1,22 +1,17 @@
-'use strict';
-import express from 'express';
-import { json } from 'express';
-import cors from 'cors';
-import { json as _json } from 'body-parser';
-import { port } from './config.js';
-import { routes } from './routes/adoption-routes.js';
-
-const app = express();
-
-app.use(json());
-app.use(cors());
-app.use(_json());
+const express = require('express');
 
 
-app.use('/api', routes);
+
+var app = express();
+app.set('view engine', 'ejs');
+// app.use(express.static(__dirname + 'styles'));
 
 app.get('/', function (req, res){
-    res.render('index');
-})
+    // res.render('index');
+});
 
-app.listen(port, () => console.log('app is listening on url http://localhost:' + port));
+
+app.listen(3000, 'localhost', () => {
+    console.log("Server is running");
+});
+    
