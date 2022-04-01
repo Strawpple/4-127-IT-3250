@@ -9,7 +9,7 @@
             <!--Start of NavBar-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
               <div class="container-fluid">
-                <a class="navbar-brand" href="#">Adoption App</a>
+                <a class="navbar-brand" href="/">Adoption App</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -17,10 +17,10 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                   <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="#adoption">Adoption</a>
+                      <a class="nav-link" href="adoption">Adoption</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#account">Account</a>
+                      <a class="nav-link" href="account">Account</a>
                     </li>
                     
                   </ul>
@@ -32,9 +32,29 @@
             <div>
                 <!-- <img src="/image/dog-with-gel.png"> -->
             </div>
+            <div class="container">
+              <!-- Content here -->
+              <p>
+                <h2>List of Animal for Adoption</h2>
+                <% for(var index=0; index < itemData.length; index++){ %>
+
+                    <div class="card">
+                      <img src="..." class="card-img-top" alt="...">
+                      <div class="card-header">
+                        <%= itemData[index].data()['name'] %>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text"><%= itemData[index].data()['address'] %></p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                      </div>
+                    </div>
+                    
+                    <% } %>
+              </p>
+            </div>
 
             <!--Adoption-->
-            <div id="adoption" style="margin-top: 40%; margin-left: 30%;">
+            <div id="adoption" style="margin-top: 5%; margin-left: 21%;">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adoptdogModal">
                     Adopt a Dog
@@ -48,14 +68,20 @@
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">List of Dogs for Adoption</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Dogs for Adoption</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         <div class="modal-body">
                             <div>
-                                
+                                <p>
+                                  <% for(var index=0; index < itemData.length; index++){ %>
+                                    <% if(itemData[index].data()['label'] == 'dog') { %>
+                                      <%= itemData[index].data()['name'] %>
+                                        <% } %>
+                                          <% } %>
+                                </p>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -72,13 +98,19 @@
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cats for Adoption</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         <div class="modal-body">
-                        ...
+                            <p>
+                              <% for(var index=0; index < itemData.length; index++){ %>
+                                <% if(itemData[index].data()['label'] == 'cat') { %>
+                                  <%= itemData[index].data()['name'] %>
+                                    <% } %>
+                                      <% } %>
+                            </p>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,12 +123,6 @@
             </div>
             <!--Adoption-->
 
-
-            <!--Footer-->
-            <div style="margin-top: 30%;">
-
-            </div>
-            <!--Footer-->
 
 
 
