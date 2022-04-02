@@ -2,6 +2,10 @@ const express = require('express');
 const http = require('http');
 const fs = require('fs');
 
+const bodyParser = require("body-parser");
+
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+
 var app = express();
 app.set('view engine', 'ejs');
 // app.use(express.static(__dirname + 'styles'));
@@ -57,6 +61,7 @@ app.get('/',function (req, res){
     res.render('pages/index', data);
 });
 
+
 app.get('/adoption', async function (req, res){
     // res.render('index');
     const foradoption = await itemcoll.get();
@@ -75,7 +80,44 @@ app.get('/adoption', async function (req, res){
     }
     res.render('pages/adoption', data);
 
+    
+    app.post("/adoptionform",urlencodedParser,function(req, res){
+        var dname = req.body.name;
+        var daddress = req.body.address;
+        var durl_photo = req.body.photo_url;
+        var dpettype = req.body.pettype;
+    
+        // console.log(req.body);
+        // res.render('pages/adoption', {qs: req.query});
+    
+        db.collection('adoption').add({
+            name: dname,
+            address: daddress,
+            photo_url: durl_photo,
+            pettype: dpettype
+        })
+        .then(() => {
+            console.log("Document added successfully");
+        })
+        .catch((error) => {
+            console.error("Error", error);
+        })
+    
+        res.redirect('/adoption');
+    
+    })
+    
+    
 });
+
+// app.get('/adoptionform', function(req,res){
+//     res.render('pages/adoptionform', {qs: req.query});
+// })
+
+
+
+
+
 
 app.get('/account',function (req, res){
     let data = {
