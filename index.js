@@ -7,9 +7,14 @@ const bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 var app = express();
-app.set('view engine', 'ejs');
 // app.use(express.static(__dirname + 'styles'));
 // console.log(__dirname);
+
+app.use(express.static('assets'));
+const port = process.env.PORT || 3000;
+
+app.set('view engine', 'ejs');
+
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
